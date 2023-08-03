@@ -1,4 +1,6 @@
+import 'package:ffi/ffi.dart';
 import 'package:flutter/material.dart';
+import 'package:task3/native.dart';
 import 'package:task3/secondary_thread.dart';
 
 void main() async {
@@ -35,7 +37,8 @@ class MyWidget extends StatelessWidget {
         children: [
           ElevatedButton(
             onPressed: () async {
-              SecondaryThread.sendPort.send(1);
+              final number = helloString();
+              print(number.toDartString());
             },
             style: const ButtonStyle(
               alignment: Alignment.center,
